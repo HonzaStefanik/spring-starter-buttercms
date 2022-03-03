@@ -124,13 +124,16 @@
                 <!-- Breadcrumb nav for main blogs.html view -->
                 <div class="section-title text-center">
                     <!-- todo later do check for tag also, hence the 2nd if not null-->
-                    <h2 th:if="${category == null}">All Blog Posts</h2>
-                    <h2 th:if="${category != null}">Blog Posts By Category</h2>
+                    <h2 th:if="${category == null} and ${tag == null}">All Blog Posts</h2>
+                    <h2 th:if="${tag == null} and ${category != null}">Blog Posts By Category</h2>
+                    <h2 th:if="${tag != null}">Blog Posts By Tag</h2>
+
 
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Home</a></li>
-                        <li th:if="${category == null}">All blog posts</li>
-                        <li th:if="${category != null}">Category: [(${category.name})]</li>
+                        <li th:if="${category == null} and ${tag == null}">All blog posts</li>
+                        <li th:if="${tag == null} and ${category != null}">Category: [(${category.name})]</li>
+                        <li th:if="${tag != null}">Tag: [(${tag.name})]</li>
                     </ul>
                 </div>
                 <!-- End Nav -->
@@ -197,10 +200,9 @@
                                            href="javascript:void(0)"><i class="lni lni-calendar"></i>
                                         </a>
                                     </li>
-                                    <!--TODO href for tags -->
                                     <li th:each="tag: ${post.tags}">
                                         <i class="lni lni-tag"><a th:text="${tag.name}"
-                                                                  href="javascript:void(0)"></a></i>
+                                                                  th:href="|/blog/tag/${tag.slug}|"></a></i>
                                     </li>
                                 </ul>
                             </div>
@@ -212,7 +214,7 @@
                             </div>
                             <div class="blog-roll-card-footer text-center">
                                 <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                                <a th:href="|/blogs/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
+                                <a th:href="|/blogs/${post.slug}|" class="main-btn btn-hover">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +236,7 @@
                     <h5 class="widget-title">Categories</h5>
                     <ul th:each="category: ${categories}" class="categories-list">
                         <li>
-                            <a th:text="${category.name}" th:href="|/blogs/category/${category.slug}|"></a>
+                            <a th:text="${category.name}" th:href="|/blog/category/${category.slug}|"></a>
                         </li>
                     </ul>
                 </div>

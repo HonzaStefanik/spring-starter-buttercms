@@ -1,10 +1,7 @@
 package com.buttercms.springstarterbuttercms.controller;
 
 import com.buttercms.IButterCMSClient;
-import com.buttercms.model.CategoriesResponse;
-import com.buttercms.model.CategoryResponse;
-import com.buttercms.model.PostResponse;
-import com.buttercms.model.PostsResponse;
+import com.buttercms.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +11,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+//TODO remove hardcoded strings and place them into constants
+
 @Controller
 public class BlogController {
     private final IButterCMSClient butterCMSClient;
@@ -22,7 +21,7 @@ public class BlogController {
         this.butterCMSClient = butterCMSClient;
     }
 
-    @GetMapping("/blogs/")
+    @GetMapping("/blog/")
     public String blogs(Model model) {
         PostsResponse posts = butterCMSClient.getPosts(Collections.emptyMap());
         CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
@@ -31,7 +30,7 @@ public class BlogController {
         return "blogs";
     }
 
-    @GetMapping("/blogs/{slug}")
+    @GetMapping("/blog/{slug}")
     public String blogById(@PathVariable String slug,  Model model) {
         PostResponse post = butterCMSClient.getPost(slug);
         CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
@@ -40,7 +39,7 @@ public class BlogController {
         return "blog-post";
     }
 
-    @GetMapping("/blogs/category/{category_slug}")
+    @GetMapping("/blog/category/{category_slug}")
     public String blogByCategory(@PathVariable String category_slug,  Model model) {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("category_slug", category_slug);
@@ -50,6 +49,20 @@ public class BlogController {
         CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
         model.addAttribute("posts", posts.getData());
         model.addAttribute("category", category.getData());
+        model.addAttribute("categories", categories.getData());
+        return "blogs";
+    }
+
+    @GetMapping("/blog/tag/{tag_slug}")
+    public String blogByTag(@PathVariable String tag_slug,  Model model) {
+        Map<String, String> queryParams = new HashMap<String, String>() {{
+            put("tag_slug", tag_slug);
+        }};
+        PostsResponse posts = butterCMSClient.getPosts(queryParams);
+        TagResponse tag = butterCMSClient.getTag(tag_slug, Collections.emptyMap());
+        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
+        model.addAttribute("posts", posts.getData());
+        model.addAttribute("tag", tag.getData());
         model.addAttribute("categories", categories.getData());
         return "blogs";
     }
