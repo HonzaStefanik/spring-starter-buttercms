@@ -20,7 +20,7 @@ public class IndexController {
 
     @GetMapping("/")
     public String index(Model model) {
-        Map<String, String> queryParams = new HashMap<>() {{
+        Map<String, String> queryParams = new HashMap<String, String>() {{
             put("page", "1");
             put("page_size", "2");
         }};
