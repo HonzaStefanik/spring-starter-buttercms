@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
@@ -344,11 +344,11 @@
                 <div class="section-title text-center">
                     <h2>Latest Blog Posts</h2>
                     <p>Butter also has a built in blog engine which makes it dead simple
-                        to launch a new company blog.
+                        to launch a new company blog
                     </p>
                     <p>
                         <a
-                                href="blog.html"
+                                href="/blog/"
                                 class="main-btn btn-hover mt-5">View All Blog Posts
                         </a>
                     </p>
@@ -357,44 +357,22 @@
         </div>
         <div class="row justify-content-center">
 
-            <div class="col-lg-4 col-md-8 col-sm-10">
+            <div th:each="post: ${posts}" class="col-lg-4 col-md-8 col-sm-10">
                 <div class="single-blog">
                     <div class="blog-header">
                         <img
                                 class="img-fluid"
                                 loading="lazy"
-                                src="https://cdn.buttercms.com/bGQip1SQSoevxZxIp5Jh"
+                                th:src="${post.featuredImage}"
                                 alt=""
                         >
                     </div>
                     <div class="blog-body">
-                        <h5 class="package-name"><a href="#">This is the latest blog post title</a></h5>
-                        <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy
-                            eirmod tempor ividunt dolore.</p>
+                        <a th:href="${post.url}"><h5 th:text="${post.title}" class="package-name"></h5></a>
+                        <p th:text="${post.metaDescription}"></p>
                     </div>
                     <div class="blog-footer">
-                        <a href="#0" class="main-btn btn-hover">Read More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-8 col-sm-10">
-                <div class="single-blog">
-                    <div class="blog-header">
-                        <img
-                                class="img-fluid"
-                                loading="lazy"
-                                src="https://cdn.buttercms.com/bGQip1SQSoevxZxIp5Jh"
-                                alt="#"
-                        >
-                    </div>
-                    <div class="blog-body">
-                        <h5 class="package-name"><a href="#">This is the latest blog post title</a></h5>
-                        <p>Lorem ipsum dolor sit amet, adipscing elitr, sit gifted sed diam nonumy
-                            eirmod tempor ividunt dolore.</p>
-                    </div>
-                    <div class="blog-footer">
-                        <a href="#0" class="main-btn btn-hover">Read More</a>
+                        <a th:href="${post.url}" class="main-btn btn-hover">Read More</a>
                     </div>
                 </div>
             </div>
