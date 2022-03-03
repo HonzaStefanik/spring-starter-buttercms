@@ -173,21 +173,21 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     to the given specifications for that individual framework.
 
 ## Blog Single Post View
-- [ ] Route is set to /blog/<post-slug>/
+- [x] Route is set to /blog/<post-slug>/
 - [ ] Detects if API token is configured and displays error hero if not.
 - [ ] SEO details in page header update with changes to the SEO pane
     of the post in the customer's ButterCMS.com account and include title, description, and featured image.
 - [ ] All items in header menu link to appropriate content section in main view.
 - [ ] All items in footer menu link to appropriate content section in main view.
-- [ ] Title above breadcrumb menu displays the post title.
-- [ ] Breadcrumb menu displays "Home" > "Blog" > <post title>
-- [ ] "Home" in breadcrumb menu links back to starter project index view.
-- [ ] "Blog" in breadcrumb menu links back to blog list view.
-- [ ] All categories appear in category widget area and update with changes.
+- [x] Title above breadcrumb menu displays the post title.
+- [x] Breadcrumb menu displays "Home" > "Blog" > <post title>
+- [x] "Home" in breadcrumb menu links back to starter project index view.
+- [x] "Blog" in breadcrumb menu links back to blog list view.
+- [x] All categories appear in category widget area and update with changes.
 - [ ] Clicking on a category routes to the blog category view for that category.
-- [ ] Posts display and include titles, author, author image, readable date/time,
+- [x] Posts display and include titles, author, author image, readable date/time,
     tags, and featured image.
-- [ ] Post titles, featured images, author, author image, date, and tags update
+- [x] Post titles, featured images, author, author image, date, and tags update
     with changes to posts in the customer's ButterCMS.com account.
 - [ ] Placeholder avatar used if no avatar in customer's Butter account.
 - [ ] Clicking a tag routes to the appropriate blog tag view for that tag.
@@ -195,7 +195,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     magnifying glass icon routes to blog search view for that term.
 - [ ] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
-- [ ] Blog posts from ButterCMS.com without featured images have featured
+- [x] Blog posts from ButterCMS.com without featured images have featured
     image slot removed from their card.
 
 ## Deployment/Hosting

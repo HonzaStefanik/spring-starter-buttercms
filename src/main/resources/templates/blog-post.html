@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Sample Blog with Components - powered by ButterCMS</title>
+    <title>Sample Blog Post with Components - powered by ButterCMS</title>
     <meta name="description" content="Sample Landing Page with Components - powered by ButterCMS"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" type="image/x-icon" href="https://buttercms.com/static/v2/images/favicon.png"/>
@@ -114,107 +114,59 @@
 		</section> -->
 <!-- ========================= hero-section end ========================= -->
 
-<!-- ========================= blog-roll section start ========================= -->
+<!-- ========================= blog-section start ========================= -->
 
-<section id="blog-roll" class="blog-roll-nav">
+<section id="blog-header" class="single-post-nav">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-
-                <!-- Breadcrumb nav for main blogs.html view -->
                 <div class="section-title text-center">
-                    <h2>All Blog Posts</h2>
+                    <h2>This is a sample blogpost.</h2>
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Home</a></li>
-                        <li>All blog posts</li>
+                        <li><a href="/blogs/">Blog</a></li>
+                        <li>This is a sample blogpost.</li>
                     </ul>
                 </div>
-                <!-- End Nav -->
-
-                <!-- Breadcrumb nav for categories view -->
-                <!-- <div class="section-title text-center">
-                    <h2>Blog Posts by Category</h2>
-                    <ul class="breadcrumb-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
-                        <li>Category: Name</li>
-                    </ul>
-                </div> -->
-                <!-- End Nav -->
-
-                <!-- Breadcrumb nav for posts by tag view -->
-                <!-- <div class="section-title text-center">
-                    <h2>Blog Posts by Tag</h2>
-                    <ul class="breadcrumb-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
-                        <li>Tag: Name</li>
-                    </ul>
-                </div> -->
-                <!-- End Nav -->
-
-                <!-- Breadcrumb nav for search view -->
-                <!-- <div class="section-title text-center">
-                    <h2>Search Results</h2>
-                    <ul class="breadcrumb-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
-                        <li>Seach: Search Term</li>
-                    </ul>
-                </div> -->
-                <!-- End Nav -->
-
             </div>
         </div>
     </div>
 </section>
 <!-- Blog Post -->
-<section class="blog-posts">
+<section class="blog-post">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-8 blog-roll-cards">
-                <div class="row"><!--nested row for blogroll-->
-                    <div th:each="post : ${posts}" class="col-12 col-lg-6">
-                        <div class="blog-roll-card">
-                            <div class="blog-roll-card-meta">
-                                <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                                <a th:href="|/blogs/${post.getSlug()}|">
-                                    <h2 th:text="${post.title}" class="blog-roll-card-header"></h2>
+            <div class="col-lg-8 col-md-12 col-12">
+                <div class="single-post">
+                    <div class="single-post-meta">
+                        <h2 th:text="${post.title}" class="single-post-header"></h2>
+                        <ul class="single-post-meta-info">
+                            <li>
+                                <!--TODO stock image if profile image is null -->
+                                <a href="javascript:void(0)"><img th:src="${post.author.profileImage}" alt="#"></a>
+                                <a href="javascript:void(0)"
+                                   th:text="|${post.author.firstName} ${post.author.lastName}|"></a></li>
+                            <li>
+                                <a th:text="${#dates.format(post.published, 'dd MMM yy')}"
+                                   href="javascript:void(0)"><i class="lni lni-calendar"></i>
                                 </a>
-                                <ul class="blog-roll-card-meta-info">
-                                    <li>
-                                        <!--TODO stock image if profile image is null -->
-                                        <a href="javascript:void(0)"><img th:src="${post.author.profileImage}" alt="#"></a>
-                                        <a href="javascript:void(0)"
-                                           th:text="|${post.author.firstName} ${post.author.lastName}|"></a>
-                                    </li>
-                                    <li>
-                                        <a th:text="${#dates.format(post.published, 'dd MMM yy')}"
-                                           href="javascript:void(0)"><i class="lni lni-calendar"></i>
-                                        </a>
-                                    </li>
-                                    <!--TODO href for tags -->
-                                    <li th:each="tag: ${post.tags}">
-                                        <i class="lni lni-tag"><a th:text="${tag.name}" href="javascript:void(0)"></a></i>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="single-post-thumbnail">
-                                <img th:src="${post.featuredImage}" alt="">
-                            </div>
-                            <div class="blog-roll-card-body">
-                                <p th:text="${post.metaDescription}"></p>
-                            </div>
-                            <div class="blog-roll-card-footer text-center">
-                                <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                                <a th:href="|/blogs/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
-                            </div>
-                        </div>
+                            </li>
+                            <!--TODO href for tags -->
+                            <li th:each="tag: ${post.tags}">
+                                <i class="lni lni-tag"><a th:text="${tag.name}" href="javascript:void(0)"></a></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-post-thumbnail">
+                        <img th:src="${post.featuredImage}" alt="">
+                    </div>
+                    <div class="single-post-body">
+                        [(${post.body})]
                     </div>
                 </div>
             </div>
-            <!-- Widgets Column -->
-            <aside class="col-12 col-lg-4">
+            <!-- Searchbox -->
+            <aside class="col-lg-4 col-md-12 col-12">
                 <div class="sidebar blog-grid-page">
                     <div class="widget search-widget">
                         <h5 class="widget-title">Search This Site</h5>
@@ -227,15 +179,26 @@
 
                 <div class="widget categories-widget">
                     <h5 class="widget-title">Categories</h5>
-                    <ul th:each="category: ${categories}" class="categories-list">
+                    <ul class="categories-list">
                         <li>
-                            <!-- TODO here should href point / what should it do? -->
-                            <a th:text="${category.name}" href="javascript:void(0)">Design</a>
+                            <a href="javascript:void(0)">Design</a>
                         </li>
-                    </ul>
+                        <li>
+                            <a href="javascript:void(0)">UX</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Interview</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Business</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">Popular</a>
+                        </li>
                 </div>
-            </aside>
         </div>
+        </aside>
+    </div>
     </div>
 </section>
 <!-- ========================= blog-section end ========================= -->
@@ -265,7 +228,7 @@
                 <div class="footer-widget">
                     <h3>About Us</h3>
                     <ul class="links">
-                        <li><a href="/">Home</a></li>
+                        <li><a href="index.html#home">Home</a></li>
                         <li><a href="index.html#about">About</a></li>
                         <li><a href="index.html#features">Features</a></li>
                         <li><a href="index.html#tryit">Try It</a></li>
@@ -295,10 +258,9 @@
     <i class="lni lni-chevron-up"></i>
 </a>
 
-<!-- =================== JS Blog Template ========================= -->
+<!-- =================== JS Blog Post Template ========================= -->
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/polyfill.js}"></script>
 <script th:src="@{/js/main.js}"></script>
-
 </body>
 </html>

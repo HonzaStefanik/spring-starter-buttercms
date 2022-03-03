@@ -2,6 +2,7 @@ package com.buttercms.springstarterbuttercms.controller;
 
 import com.buttercms.IButterCMSClient;
 import com.buttercms.model.CategoriesResponse;
+import com.buttercms.model.PostResponse;
 import com.buttercms.model.PostsResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,7 +30,8 @@ public class BlogController {
 
     @GetMapping("/blogs/{slug}")
     public String blogById(@PathVariable String slug,  Model model) {
-        //PostResponse posts = butterCMSClient.getPost(slug);
+        PostResponse post = butterCMSClient.getPost(slug);
+        model.addAttribute("post", post.getData());
         return "blog-post";
     }
 }
