@@ -124,7 +124,7 @@
                     <h2>This is a sample blogpost.</h2>
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Home</a></li>
-                        <li><a href="/blogs/">Blog</a></li>
+                        <li><a href="/blog/">Blog</a></li>
                         <li>This is a sample blogpost.</li>
                     </ul>
                 </div>
@@ -181,7 +181,7 @@
                     <h5 class="widget-title">Categories</h5>
                     <ul th:each="category: ${categories}" class="categories-list">
                         <li>
-                            <a th:text="${category.name}" th:href="|/blogs/category/${category.slug}|"></a>
+                            <a th:text="${category.name}" th:href="|/blog/category/${category.slug}|"></a>
                         </li>
                     </ul>
                 </div>

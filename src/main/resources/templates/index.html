@@ -348,7 +348,7 @@
                     </p>
                     <p>
                         <a
-                                href="/blogs/"
+                                href="/blog/"
                                 class="main-btn btn-hover mt-5">View All Blog Posts
                         </a>
                     </p>
@@ -369,11 +369,11 @@
                     </div>
                     <div class="blog-body">
                         <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                        <a th:href="|/blogs/${post.getSlug()}|"><h5 th:text="${post.title}" class="package-name"></h5></a>
+                        <a th:href="|/blog/${post.getSlug()}|"><h5 th:text="${post.title}" class="package-name"></h5></a>
                         <p th:text="${post.metaDescription}"></p>
                     </div>
                     <div class="blog-footer">
-                        <a th:href="|/blogs/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
+                        <a th:href="|/blog/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
                     </div>
                 </div>
             </div>

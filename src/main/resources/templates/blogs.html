@@ -123,7 +123,6 @@
 
                 <!-- Breadcrumb nav for main blogs.html view -->
                 <div class="section-title text-center">
-                    <!-- todo later do check for tag also, hence the 2nd if not null-->
                     <h2 th:if="${category == null} and ${tag == null}">All Blog Posts</h2>
                     <h2 th:if="${tag == null} and ${category != null}">Blog Posts By Category</h2>
                     <h2 th:if="${tag != null}">Blog Posts By Tag</h2>
@@ -132,6 +131,7 @@
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Home</a></li>
                         <li th:if="${category == null} and ${tag == null}">All blog posts</li>
+                        <li th:if="${category != null} or ${tag != null}"><a href="/blog/">Blog</a></li>
                         <li th:if="${tag == null} and ${category != null}">Category: [(${category.name})]</li>
                         <li th:if="${tag != null}">Tag: [(${tag.name})]</li>
                     </ul>
@@ -185,7 +185,7 @@
                         <div class="blog-roll-card">
                             <div class="blog-roll-card-meta">
                                 <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                                <a th:href="|/blogs/${post.getSlug()}|">
+                                <a th:href="|/blog/${post.getSlug()}|">
                                     <h2 th:text="${post.title}" class="blog-roll-card-header"></h2>
                                 </a>
                                 <ul class="blog-roll-card-meta-info">
@@ -214,7 +214,7 @@
                             </div>
                             <div class="blog-roll-card-footer text-center">
                                 <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
-                                <a th:href="|/blogs/${post.slug}|" class="main-btn btn-hover">Read More</a>
+                                <a th:href="|/blog/${post.slug}|" class="main-btn btn-hover">Read More</a>
                             </div>
                         </div>
                     </div>
