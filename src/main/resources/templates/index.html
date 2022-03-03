@@ -368,11 +368,12 @@
                         >
                     </div>
                     <div class="blog-body">
-                        <a th:href="${post.url}"><h5 th:text="${post.title}" class="package-name"></h5></a>
+                        <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
+                        <a th:href="|/blogs/${post.getSlug()}|"><h5 th:text="${post.title}" class="package-name"></h5></a>
                         <p th:text="${post.metaDescription}"></p>
                     </div>
                     <div class="blog-footer">
-                        <a th:href="${post.url}" class="main-btn btn-hover">Read More</a>
+                        <a th:href="|/blogs/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
                     </div>
                 </div>
             </div>

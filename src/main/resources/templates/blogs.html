@@ -123,10 +123,14 @@
 
                 <!-- Breadcrumb nav for main blogs.html view -->
                 <div class="section-title text-center">
-                    <h2>All Blog Posts</h2>
+                    <!-- todo later do check for tag also, hence the 2nd if not null-->
+                    <h2 th:if="${category == null}">All Blog Posts</h2>
+                    <h2 th:if="${category != null}">Blog Posts By Category</h2>
+
                     <ul class="breadcrumb-nav">
                         <li><a href="/">Home</a></li>
-                        <li>All blog posts</li>
+                        <li th:if="${category == null}">All blog posts</li>
+                        <li th:if="${category != null}">Category: [(${category.name})]</li>
                     </ul>
                 </div>
                 <!-- End Nav -->
@@ -195,7 +199,8 @@
                                     </li>
                                     <!--TODO href for tags -->
                                     <li th:each="tag: ${post.tags}">
-                                        <i class="lni lni-tag"><a th:text="${tag.name}" href="javascript:void(0)"></a></i>
+                                        <i class="lni lni-tag"><a th:text="${tag.name}"
+                                                                  href="javascript:void(0)"></a></i>
                                     </li>
                                 </ul>
                             </div>
@@ -229,8 +234,7 @@
                     <h5 class="widget-title">Categories</h5>
                     <ul th:each="category: ${categories}" class="categories-list">
                         <li>
-                            <!-- TODO here should href point / what should it do? -->
-                            <a th:text="${category.name}" href="javascript:void(0)">Design</a>
+                            <a th:text="${category.name}" th:href="|/blogs/category/${category.slug}|"></a>
                         </li>
                     </ul>
                 </div>

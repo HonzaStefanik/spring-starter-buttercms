@@ -179,22 +179,11 @@
 
                 <div class="widget categories-widget">
                     <h5 class="widget-title">Categories</h5>
-                    <ul class="categories-list">
+                    <ul th:each="category: ${categories}" class="categories-list">
                         <li>
-                            <a href="javascript:void(0)">Design</a>
+                            <a th:text="${category.name}" th:href="|/blogs/category/${category.slug}|"></a>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)">UX</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">Interview</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">Business</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">Popular</a>
-                        </li>
+                    </ul>
                 </div>
         </div>
         </aside>

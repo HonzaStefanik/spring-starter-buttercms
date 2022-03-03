@@ -46,8 +46,8 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 - [x] "Latest Blog Posts" section shows up to two cards containing the customer's
     two most recent blog posts in ButterCMS.com.
 - [x] "View All Blog Posts" button on main page links to Blog main view (list view).
-- [ ] Title on each blog card links to blog post detail view.
-- [ ] "Read More" Button on each blog card links to blog post detail view.
+- [x] Title on each blog card links to blog post detail view.
+- [x] "Read More" Button on each blog card links to blog post detail view.
 - [x] Blog posts from ButterCMS.com without featured images have featured
     image slot removed from their card.
 - [ ] *Draft* changes of the landing-page-with-components Page in buttercms.com are
@@ -83,26 +83,26 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     to the given specifications for that individual framework.
 
 ## Blog Categories View
-- [ ] Route is set to /blog/category/<category-slug>/
+- [x] Route is set to /blog/category/<category-slug>/
 - [ ] Detects if API token is configured and displays error hero if not.
 - [ ] SEO title reads: "Sample Blog - category: *category slug*"
 - [ ] SEO description reads: "Sample blog powered by ButterCMS, showing category: *category slug*."
 - [ ] All items in header menu link to appropriate content section in main view.
 - [ ] All items in footer menu link to appropriate content section in main view.
 - [ ] Title above breadcrumb menu says "Blog Posts By Category"
-- [ ] Breadcrumb menu displays "Home" > "Blog" > "Category: <category name>".
-- [ ] "Home" in breadcrumb menu links back to starter project index view.
-- [ ] "Blog" in breadcrumb menu links back to blog list view.
-- [ ] All categories appear in category widget area and update with changes.
-- [ ] Clicking on a category routes to the blog category view for that category.
-- [ ] Posts display and include titles, author, author image, readable date/time,
+- [x] Breadcrumb menu displays "Home" > "Blog" > "Category: <category name>".
+- [x] "Home" in breadcrumb menu links back to starter project index view.
+- [x] "Blog" in breadcrumb menu links back to blog list view.
+- [x] All categories appear in category widget area and update with changes.
+- [x] Clicking on a category routes to the blog category view for that category.
+- [x] Posts display and include titles, author, author image, readable date/time,
     tags, and featured image.
-- [ ] Post titles, featured images, author, author image,  date, and tags update
+- [x] Post titles, featured images, author, author image,  date, and tags update
     with changes to posts.
 - [ ] Placeholder avatar used if no avatar in customer's Butter account.
 - [ ] Clicking a tag routes to the appropriate blog tag view for that tag.
-- [ ] Title on each blog card links to blog post detail view.
-- [ ] "Read More" Button on each blog card links to blog post detail view.
+- [x] Title on each blog card links to blog post detail view.
+- [x] "Read More" Button on each blog card links to blog post detail view.
 - [ ] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [ ] Searching for a term that does not exist in the customer's ButterCMS.com posts
