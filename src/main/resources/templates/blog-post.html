@@ -142,8 +142,10 @@
                         <h2 th:text="${post.title}" class="single-post-header"></h2>
                         <ul class="single-post-meta-info">
                             <li>
-                                <!--TODO stock image if profile image is null -->
-                                <a href="javascript:void(0)"><img th:src="${post.author.profileImage}" alt="#"></a>
+                                <a href="javascript:void(0)">
+                                    <img th:unless="${#strings.isEmpty(post.author.profileImage)}" th:src="${post.author.profileImage}" />
+                                    <img th:if="${#strings.isEmpty(post.author.profileImage)}" th:src="@{/images/placeholder.png}" />
+                                </a>
                                 <a href="javascript:void(0)"
                                    th:text="|${post.author.firstName} ${post.author.lastName}|"></a></li>
                             <li>
