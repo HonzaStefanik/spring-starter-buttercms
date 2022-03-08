@@ -57,21 +57,21 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 ## Blog Main View
 - [x] Route is set to /blog/
 - [x] Detects if API token is configured and displays error hero if not.
-- [ ] SEO title reads: "Sample Blog - All Posts"
-- [ ] SEO description reads: "Sample blog powered by ButterCMS, showing all posts."
+- [x] SEO title reads: "Sample Blog - All Posts"
+- [x] SEO description reads: "Sample blog powered by ButterCMS, showing all posts."
 - [x] All items in header menu link to appropriate content section in main view.
 - [x] All items in footer menu link to appropriate content section in main view.
 - [x] Title above breadcrumb menu says "All Blog Posts"
 - [x] Breadcrumb menu displays "Home" > All Blog Posts.
 - [x] "Home" in breadcrumb menu links back to index view.
 - [x] All categories appear in category widget area and update with changes.
-- [ ] Clicking on a category routes to the blog category view for that category.
+- [x] Clicking on a category routes to the blog category view for that category.
 - [x] Posts display and include titles, author, author image, readable date/time,
     tags, and featured image.
 - [x] Post titles, featured images, author, author image, date, and tags update
     with changes to posts.
-- [ ] Placeholder avatar used if no avatar in customer's Butter account.
-- [ ] Clicking a tag routes to the appropriate blog tag view for that tag.
+- [x] Placeholder avatar used if no avatar in customer's Butter account.
+- [x] Clicking a tag routes to the appropriate blog tag view for that tag.
 - [x] Title on each blog card links to blog post detail view.
 - [x] "Read More" Button on each blog card links to blog post detail view.
 - [ ] Search widget area is functional. Typing a search term into the box and clicking on
@@ -86,8 +86,8 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 ## Blog Categories View
 - [x] Route is set to /blog/category/<category-slug>/
 - [x] Detects if API token is configured and displays error hero if not.
-- [ ] SEO title reads: "Sample Blog - category: *category slug*"
-- [ ] SEO description reads: "Sample blog powered by ButterCMS, showing category: *category slug*."
+- [x] SEO title reads: "Sample Blog - category: *category slug*"
+- [x] SEO description reads: "Sample Blog - category: *category slug*."
 - [ ] All items in header menu link to appropriate content section in main view.
 - [ ] All items in footer menu link to appropriate content section in main view.
 - [ ] Title above breadcrumb menu says "Blog Posts By Category"
@@ -176,7 +176,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 ## Blog Single Post View
 - [x] Route is set to /blog/<post-slug>/
 - [x] Detects if API token is configured and displays error hero if not.
-- [ ] SEO details in page header update with changes to the SEO pane
+- [x] SEO details in page header update with changes to the SEO pane
     of the post in the customer's ButterCMS.com account and include title, description, and featured image.
 - [ ] All items in header menu link to appropriate content section in main view.
 - [ ] All items in footer menu link to appropriate content section in main view.
