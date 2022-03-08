@@ -15,13 +15,14 @@ Note: For frameworks that generate static sites, e.g., NextJS, etc.: once these
 - [x] Locally run project uses the provided favicon.
 - [x] Starter project uses best practices for managing and accessing environment
     variables, including Butter token (generally by storing in an .env file).
-- [ ] If value for Butter token is present in .env file but set to an invalid
+- [x] If value for Butter token is present in .env file but set to an invalid
     value, navigating to any page in the local version displays a 404 page.
     Additionally, the following error is logged to console: "Your Butter token
     is set to an invalid value. Please verify your token is correct."
-- [ ] Instructions on error hero for missing API token has been updated to fit
+        * It's not possible to log to the browser's console from Java. However, an error message is logged.
+- [x] Instructions on error hero for missing API token has been updated to fit
     current framework.
-- [ ] "Get your free API token" button on error hero links to https://buttercms.com/join/
+- [x] "Get your free API token" button on error hero links to https://buttercms.com/join/
 
 ## Navigation menu
 - [ ] Navigation menu is pulled into project via two API calls. Updates to the navigation
@@ -33,7 +34,7 @@ Note: For frameworks that generate static sites, e.g., NextJS, etc.: once these
 - [ ] Secondary route is set to either /<slug> or /landing-page/<slug> to enable previewing in ButterCMS.com
 iframe panel, as iframe panel does not currently explicitly allow previewing of index.
 - [x] Page view connects to "landing-page-with-components" page type in Butter.
-- [ ] Automatically detects if API token is configured and displays error hero
+- [x] Automatically detects if API token is configured and displays error hero
     from front end templates if not.
 - [ ] SEO details in page header update with changes to the SEO component from
     the landing-page-with-components Page in the customer's ButterCMS.com account.
@@ -55,7 +56,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 
 ## Blog Main View
 - [x] Route is set to /blog/
-- [ ] Detects if API token is configured and displays error hero if not.
+- [x] Detects if API token is configured and displays error hero if not.
 - [ ] SEO title reads: "Sample Blog - All Posts"
 - [ ] SEO description reads: "Sample blog powered by ButterCMS, showing all posts."
 - [x] All items in header menu link to appropriate content section in main view.
@@ -84,7 +85,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 
 ## Blog Categories View
 - [x] Route is set to /blog/category/<category-slug>/
-- [ ] Detects if API token is configured and displays error hero if not.
+- [x] Detects if API token is configured and displays error hero if not.
 - [ ] SEO title reads: "Sample Blog - category: *category slug*"
 - [ ] SEO description reads: "Sample blog powered by ButterCMS, showing category: *category slug*."
 - [ ] All items in header menu link to appropriate content section in main view.
@@ -114,7 +115,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 
 ## Blog Tags View
 - [x] Route is set to /blog/tag/<tag-slug>/
-- [ ] Detects if API token is configured and displays error hero if not.
+- [x] Detects if API token is configured and displays error hero if not.
 - [ ] SEO title reads: "Sample Blog - tag: *tag slug*"
 - [ ] SEO description reads: "Sample blog powered by ButterCMS, showing tag: *tag slug*."
 - [ ] All items in header menu link to appropriate content section in main view.
@@ -144,7 +145,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 
 ## Blog Search View
 - [ ] Route is set to /blog/search/?q=<query>/
-- [ ] Detects if API token is configured and displays error hero if not.
+- [x] Detects if API token is configured and displays error hero if not.
 - [ ] SEO title reads: "Sample Blog - search results for *category slug*"
 - [ ] SEO description reads: "Sample blog powered by ButterCMS, showing search results for *category slug*."
 - [ ] All items in header menu link to appropriate content section in main view.
@@ -174,7 +175,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 
 ## Blog Single Post View
 - [x] Route is set to /blog/<post-slug>/
-- [ ] Detects if API token is configured and displays error hero if not.
+- [x] Detects if API token is configured and displays error hero if not.
 - [ ] SEO details in page header update with changes to the SEO pane
     of the post in the customer's ButterCMS.com account and include title, description, and featured image.
 - [ ] All items in header menu link to appropriate content section in main view.
