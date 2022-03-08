@@ -2,17 +2,18 @@ package com.buttercms.springstarterbuttercms.controller;
 
 import com.buttercms.IButterCMSClient;
 import com.buttercms.model.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static com.buttercms.springstarterbuttercms.configuration.Constants.*;
 
@@ -20,6 +21,8 @@ import static com.buttercms.springstarterbuttercms.configuration.Constants.*;
 // TODO - split thymeleaf into fragments to avoid duplicating code
 @Controller
 public class BlogController {
+    Logger logger = LoggerFactory.getLogger(BlogController.class);
+
     private final IButterCMSClient butterCMSClient;
 
     public BlogController(IButterCMSClient butterCMSClient) {
@@ -80,14 +83,20 @@ public class BlogController {
         return "blogs";
     }
 
-   // @GetMapping("/blog/search")
-   // public String search(@RequestParam String searchTerm, Model model) {
-   //     List<Post> posts = butterCMSClient.getPosts(Collections.emptyMap()).getData();
-   //     List<Post> searchResult = posts.stream()
-   //             .filter(post -> post.getTitle().contains(searchTerm))
-   //             .collect(Collectors.toList());
-   //     model.addAttribute("posts", searchResult);
-   //     return searchResult.isEmpty() ? "No blog posts found matching this query." : "blogs";
-   // }
+    // TODO breadcrumb menu should show "search by: ___" - do it together with splitting html into fragments
+    @PostMapping("/blog/search")
+    public String search(@RequestParam String searchTerm, Model model) {
+        logger.info("search with query param " + searchTerm);
+        Map<String, String> queryParams = new HashMap<String, String>() {{
+            put("query", searchTerm);
+        }};
+        PostsResponse posts = butterCMSClient.getPosts(queryParams);
+        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
+        model.addAttribute("posts", posts.getData());
+        model.addAttribute("categories", categories.getData());
+        model.addAttribute("seoTitle", BLOG_SEARCH_SEO_TITLE + searchTerm);
+        model.addAttribute("seoDescription", BLOG_SEARCH_SEO_DESCRIPTION + searchTerm);
+        return "blogs";
+    }
 
 }
