@@ -3,9 +3,11 @@
 <body>
 <div class="blog-roll-card">
     <div class="blog-roll-card-meta">
-        <a th:href="|/blog/${post.getSlug()}|">
-            <h2 th:text="${post.title}" class="blog-roll-card-header"></h2>
-        </a>
+            <h2 class="blog-roll-card-header">
+                <a th:href="|/blog/${post.getSlug()}|">
+                    [(${post.title})]
+                </a>
+            </h2>
         <ul class="blog-roll-card-meta-info">
             <li>
                 <a href="javascript:void(0)">

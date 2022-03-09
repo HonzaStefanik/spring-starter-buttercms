@@ -21,7 +21,6 @@ public class ExceptionHandlingController {
     @ExceptionHandler(ButterCMSResponseException.class)
     public String invalidToken() {
         String token = butterCMSClient.getAuthToken();
-        // TODO - ask whether the same error message should be logged for both invalid and missing token -> it looks like it based on the react starter project
         logger.error("Your Butter token might be set to an invalid value. Please verify your token is correct.");
         return token == null ? "404" : "invalid-token";
     }

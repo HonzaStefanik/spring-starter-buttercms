@@ -48,7 +48,8 @@
                 </div>
             </div>
         </div>
-    </div>f
+    </div>
+    f
 </div>
 <!-- preloader end -->
 
@@ -322,7 +323,11 @@
                         >
                     </div>
                     <div class="blog-body">
-                        <a th:href="|/blog/${post.getSlug()}|"><h5 th:text="${post.title}" class="package-name"></h5></a>
+                        <h5 class="package-name">
+                            <a th:href="|/blog/${post.getSlug()}|">
+                                [(${post.title})]
+                            </a>
+                        </h5>
                         <p th:text="${post.summary}"></p>
                     </div>
                     <div class="blog-footer">
