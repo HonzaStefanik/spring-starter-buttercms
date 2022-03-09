@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="search" class="sidebar blog-grid-page">
+    <div class="widget search-widget">
+        <h5 class="widget-title">Search This Site</h5>
+        <form th:action="@{/blog/search}"  method="post">
+            <input type="text" th:value="${searchTerm}" name="searchTerm"/>
+            <button type="submit"><i class="lni lni-search-alt"></i></button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

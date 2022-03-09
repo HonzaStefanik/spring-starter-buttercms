@@ -37,6 +37,7 @@ public class BlogController {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_SEO_TITLE);
         model.addAttribute("seoDescription", BLOG_SEO_DESCRIPTION);
+        model.addAttribute("breadcrumbText", "All Blog Posts");
         return "blogs";
     }
 
@@ -48,6 +49,8 @@ public class BlogController {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", post.getSeoTitle());
         model.addAttribute("seoDescription", post.getMetaDescription());
+        model.addAttribute("breadcrumbText", post.getTitle());
+        model.addAttribute("subCollection", post.getTitle());
         return "blog-post";
     }
 
@@ -64,6 +67,8 @@ public class BlogController {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_CATEGORY_SEO_TITLE);
         model.addAttribute("seoDescription", BLOG_CATEGORY_SEO_DESCRIPTION);
+        model.addAttribute("breadcrumbText", "Blog Posts By Category");
+        model.addAttribute("subCollection", "Category: " + category.getData().getName());
         return "blogs";
     }
 
@@ -80,10 +85,11 @@ public class BlogController {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_TAG_SEO_TITLE);
         model.addAttribute("seoDescription", BLOG_TAG_SEO_DESCRIPTION);
+        model.addAttribute("breadcrumbText", "Blog Posts By Tag");
+        model.addAttribute("subCollection", "Tag: " + tag.getData().getName());
         return "blogs";
     }
 
-    // TODO breadcrumb menu should show "search by: ___" - do it together with splitting html into fragments
     @PostMapping("/blog/search")
     public String search(@RequestParam String searchTerm, Model model) {
         logger.info("search with query param " + searchTerm);
@@ -96,6 +102,8 @@ public class BlogController {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_SEARCH_SEO_TITLE + searchTerm);
         model.addAttribute("seoDescription", BLOG_SEARCH_SEO_DESCRIPTION + searchTerm);
+        model.addAttribute("breadcrumbText", "Search Results");
+        model.addAttribute("subCollection", "Search: " + searchTerm);
         return "blogs";
     }
 

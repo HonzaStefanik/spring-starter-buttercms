@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="blog-roll-card">
+    <div class="blog-roll-card-meta">
+        <a th:href="|/blog/${post.getSlug()}|">
+            <h2 th:text="${post.title}" class="blog-roll-card-header"></h2>
+        </a>
+        <ul class="blog-roll-card-meta-info">
+            <li>
+                <a href="javascript:void(0)">
+                    <img th:unless="${#strings.isEmpty(post.author.profileImage)}"
+                         th:src="${post.author.profileImage}"/>
+                    <img th:if="${#strings.isEmpty(post.author.profileImage)}" th:src="@{/images/placeholder.png}"/>
+                </a>
+                <a href="javascript:void(0)"
+                   th:text="|${post.author.firstName} ${post.author.lastName}|"></a>
+            </li>
+            <li>
+                <a th:text="${#dates.format(post.published, 'dd MMM yy')}"
+                   href="javascript:void(0)"><i class="lni lni-calendar"></i>
+                </a>
+            </li>
+            <li th:each="tag: ${post.tags}">
+                <i class="lni lni-tag"><a th:text="${tag.name}"
+                                          th:href="|/blog/tag/${tag.slug}|"></a></i>
+            </li>
+        </ul>
+    </div>
+    <div th:if="${post.featuredImage} != null" class="single-post-thumbnail">
+        <img th:src="${post.featuredImage}" alt="">
+    </div>
+    <div class="blog-roll-card-body">
+        <p th:text="${post.summary}"></p>
+    </div>
+    <div class="blog-roll-card-footer text-center">
+        <a th:href="|/blog/${post.slug}|" class="main-btn btn-hover">Read More</a>
+    </div>
+</div>
+</body>
+</html>

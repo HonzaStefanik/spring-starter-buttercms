@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="section-title text-center">
+    <h2 th:text="${breadcrumbText}"></h2>
+
+    <ul class="breadcrumb-nav">
+        <li><a href="/">Home</a></li>
+        <li th:unless="${subCollection != null}" th:text="${breadcrumbText}"></li>
+        <li th:if="${subCollection != null}"><a href="/blog/">Blog</a></li>
+        <li th:if="${subCollection != null}" th:text="${subCollection}"></li>
+    </ul>
+</div>
+</body>
+</html>

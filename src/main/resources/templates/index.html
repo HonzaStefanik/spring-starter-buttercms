@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>f
 </div>
 <!-- preloader end -->
 
@@ -313,7 +313,7 @@
 
             <div th:each="post: ${posts}" class="col-lg-4 col-md-8 col-sm-10">
                 <div class="single-blog">
-                    <div class="blog-header">
+                    <div th:if="${post.featuredImage} != null" class="blog-header">
                         <img
                                 class="img-fluid"
                                 loading="lazy"
@@ -322,9 +322,8 @@
                         >
                     </div>
                     <div class="blog-body">
-                        <!-- TODO hardcoded "blogs" is a bit ugly, but url points to nextjs starter -->
                         <a th:href="|/blog/${post.getSlug()}|"><h5 th:text="${post.title}" class="package-name"></h5></a>
-                        <p th:text="${post.metaDescription}"></p>
+                        <p th:text="${post.summary}"></p>
                     </div>
                     <div class="blog-footer">
                         <a th:href="|/blog/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
