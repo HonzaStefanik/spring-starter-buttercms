@@ -22,27 +22,30 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <div class="ms-auto">
                                 <ul id="nav" class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <a class="page-scroll active" href="/">Home</a>
+                                    <li th:each="item :${menuItems}" class="nav-item">
+                                        <a class="page-scroll" th:href="${item.url}">[(${item.label})]</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#about">About</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#features">Features</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#tryit">Try It</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#testimonials">Testimonials</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#blog">Blog</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> <!-- navbar collapse -->
+                                    <!-- <li class="nav-item">
+                                         <a class="page-scroll active" href="/">Home</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="page-scroll" href="#about">About</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="page-scroll" href="#features">Features</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="page-scroll" href="#tryit">Try It</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="page-scroll" href="#testimonials">Testimonials</a>
+                                     </li>
+                                     <li class="nav-item">
+                                         <a class="page-scroll" href="#blog">Blog</a>
+                                     </li>--
+                                 </ul>
+                             </div>
+                         </div> <!-- navbar collapse -->
                     </nav> <!-- navbar -->
                 </div>
             </div> <!-- row -->
