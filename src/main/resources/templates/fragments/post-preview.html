@@ -24,8 +24,7 @@
                 </a>
             </li>
             <li th:each="tag: ${post.tags}">
-                <i class="lni lni-tag"><a th:text="${tag.name}"
-                                          th:href="|/blog/tag/${tag.slug}|"></a></i>
+                <div th:insert="fragments/tag"></div>
             </li>
         </ul>
     </div>

@@ -18,10 +18,11 @@ import java.util.Map;
 import static com.buttercms.springstarterbuttercms.configuration.Constants.*;
 
 // TODO - remove hardcoded strings and place them into constants (although it messes up thymeleaf's autocompletion, reconsider)
+// TODO - also make usage of consts and hardcoded strings consistent
 // TODO - split thymeleaf into fragments to avoid duplicating code
+
 @Controller
 public class BlogController {
-    Logger logger = LoggerFactory.getLogger(BlogController.class);
 
     private final IButterCMSClient butterCMSClient;
 
@@ -92,7 +93,6 @@ public class BlogController {
 
     @PostMapping("/blog/search")
     public String search(@RequestParam String searchTerm, Model model) {
-        logger.info("search with query param " + searchTerm);
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("query", searchTerm);
         }};
