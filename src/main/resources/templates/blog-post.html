@@ -148,8 +148,8 @@
                                    href="javascript:void(0)"><i class="lni lni-calendar"></i>
                                 </a>
                             </li>
-                            <li th:each="tag: ${post.tags}">
-                                <div th:insert="fragments/tag"></div>
+                            <li>
+                                <th:block th:each="tag: ${post.tags}" th:insert="fragments/tag"/>
                             </li>
                         </ul>
                     </div>

@@ -82,7 +82,6 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     image slot removed from their card.
 - [ ] *Draft* changes to blog posts in buttercms.com are displayed locally according
     to the given specifications for that individual framework.
-        - TODO - ask (i think it should be ordered correctly after pulling it via the SDK)
 
 ## Blog Categories View
 - [x] Route is set to /blog/category/<category-slug>/
