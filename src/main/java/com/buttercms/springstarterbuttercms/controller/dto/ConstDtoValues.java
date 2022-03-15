@@ -1,6 +1,6 @@
-package com.buttercms.springstarterbuttercms.configuration;
+package com.buttercms.springstarterbuttercms.controller.dto;
 
-public class Constants {
+public class ConstDtoValues {
     public static String BLOG_SEO_TITLE = "Sample Blog - All Posts";
     public static String BLOG_SEO_DESCRIPTION = "Sample blog powered by ButterCMS, showing all posts.";
     public static String BLOG_CATEGORY_SEO_TITLE = "Sample Blog - category: ";

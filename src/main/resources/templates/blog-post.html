@@ -44,7 +44,7 @@
 
 
 <!-- ========================= header start ========================= -->
-<div th:insert="fragments/header :: header"></div>
+<div th:insert="fragments/common-elements/header :: header"></div>
 <!-- ========================= header end ========================= -->
 
 <!-- ========================= blog-section start ========================= -->
@@ -52,7 +52,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12">
-                <div th:insert="fragments/breadcrumb-menu"></div>
+                <div th:insert="fragments/blog/breadcrumb-menu"></div>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
                                 </a>
                             </li>
                             <li>
-                                <th:block th:each="tag: ${post.tags}" th:insert="fragments/tag"/>
+                                <th:block th:each="tag: ${post.tags}" th:insert="fragments/blog/tag"/>
                             </li>
                         </ul>
                     </div>

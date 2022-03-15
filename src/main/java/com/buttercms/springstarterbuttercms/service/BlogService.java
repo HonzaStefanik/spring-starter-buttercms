@@ -1,15 +1,18 @@
 package com.buttercms.springstarterbuttercms.service;
 
 import com.buttercms.IButterCMSClient;
-import com.buttercms.model.*;
+import com.buttercms.model.Category;
+import com.buttercms.model.Post;
+import com.buttercms.model.Tag;
+import com.buttercms.springstarterbuttercms.controller.dto.BlogsDto;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import static com.buttercms.springstarterbuttercms.configuration.Constants.*;
+import static com.buttercms.springstarterbuttercms.controller.dto.ConstDtoValues.*;
 
 @Service
 public class BlogService {
@@ -19,72 +22,96 @@ public class BlogService {
         this.butterCMSClient = butterCMSClient;
     }
 
-    public void addBlogData(Model model) {
-        PostsResponse posts = butterCMSClient.getPosts(Collections.emptyMap());
-        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
-        model.addAttribute("posts", posts.getData());
-        model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_SEO_TITLE);
-        model.addAttribute("seoDescription", BLOG_SEO_DESCRIPTION);
-        model.addAttribute("breadcrumbText", ALL_BLOGS);
+    public BlogsDto getBlogs() {
+        List<Post> posts = butterCMSClient.getPosts(Collections.emptyMap()).getData();
+        List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
+        return new BlogsDto(
+                BLOG_SEO_TITLE,
+                BLOG_SEO_DESCRIPTION,
+                ALL_BLOGS,
+                null,
+                null,
+                null,
+                posts,
+                categories,
+                null
+        );
     }
 
-    public void addBlogDataByBlog(Model model, String slug) {
+    public BlogsDto getBlogsBySlug(String slug) {
         Post post = butterCMSClient.getPost(slug).getData();
-        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
-        model.addAttribute("post", post);
-        model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", post.getSeoTitle());
-        model.addAttribute("seoDescription", post.getMetaDescription());
-        model.addAttribute("breadcrumbText", post.getTitle());
-        model.addAttribute("subCollection", post.getTitle());
+        List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
+        return new BlogsDto(
+                post.getSeoTitle(),
+                post.getMetaDescription(),
+                post.getTitle(),
+                post.getTitle(),
+                null,
+                null,
+                Collections.singletonList(post),
+                categories,
+                null
+        );
     }
 
-    public void addBlogDataByCategory(Model model, String categorySlug) {
+    public BlogsDto getBlogsByCategory(String categorySlug) {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("category_slug", categorySlug);
         }};
-        PostsResponse posts = butterCMSClient.getPosts(queryParams);
-        CategoryResponse category = butterCMSClient.getCategory(categorySlug, Collections.emptyMap());
-        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
-        String categoryName = category.getData().getName();
-        model.addAttribute("posts", posts.getData());
-        model.addAttribute("category", category.getData());
-        model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_CATEGORY_SEO_TITLE + categoryName);
-        model.addAttribute("seoDescription", BLOG_CATEGORY_SEO_DESCRIPTION + categoryName);
-        model.addAttribute("breadcrumbText", BLOGS_BY_CATEGORY);
-        model.addAttribute("subCollection", "Category: " + categoryName);
+        List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
+        Category category = butterCMSClient.getCategory(categorySlug, Collections.emptyMap()).getData();
+        List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
+        String categoryName = category.getName();
+        return new BlogsDto(
+                BLOG_CATEGORY_SEO_TITLE + categoryName,
+                BLOG_CATEGORY_SEO_DESCRIPTION + categoryName,
+                BLOGS_BY_CATEGORY,
+                "Category: " + categoryName,
+                category,
+                null,
+                posts,
+                categories,
+                null
+        );
     }
 
-    public void addBlogDataByTags(Model model, String tagSlug) {
+    public BlogsDto getBlogsByTag(String tagSlug) {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("tag_slug", tagSlug);
         }};
-        PostsResponse posts = butterCMSClient.getPosts(queryParams);
-        TagResponse tag = butterCMSClient.getTag(tagSlug, Collections.emptyMap());
-        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
-        String tagName = tag.getData().getName();
-        model.addAttribute("posts", posts.getData());
-        model.addAttribute("tag", tag.getData());
-        model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_TAG_SEO_TITLE + tagName);
-        model.addAttribute("seoDescription", BLOG_TAG_SEO_DESCRIPTION + tagName);
-        model.addAttribute("breadcrumbText", BLOGS_BY_TAG);
-        model.addAttribute("subCollection", "Tag: " + tagName);
+        List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
+        Tag tag = butterCMSClient.getTag(tagSlug, Collections.emptyMap()).getData();
+        List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
+        String tagName = tag.getName();
+        return new BlogsDto(
+                BLOG_TAG_SEO_TITLE + tagName,
+                BLOG_TAG_SEO_DESCRIPTION + tagName,
+                BLOGS_BY_TAG,
+                "Tag: " + tagName,
+                null,
+                tag,
+                posts,
+                categories,
+                null
+        );
     }
 
-    public void addBlogDataBySearch(Model model, String searchTerm) {
+    public BlogsDto searchBlogs(String searchTerm) {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("query", searchTerm);
         }};
-        PostsResponse posts = butterCMSClient.getPosts(queryParams);
-        CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
-        model.addAttribute("posts", posts.getData());
-        model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_SEARCH_SEO_TITLE + searchTerm);
-        model.addAttribute("seoDescription", BLOG_SEARCH_SEO_DESCRIPTION + searchTerm);
-        model.addAttribute("breadcrumbText", SEARCH_RESULTS);
-        model.addAttribute("subCollection", "Search: " + searchTerm);
+        List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
+        List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
+        return new BlogsDto(
+                BLOG_SEARCH_SEO_TITLE + searchTerm,
+                BLOG_SEARCH_SEO_DESCRIPTION + searchTerm,
+                SEARCH_RESULTS,
+                "Search: " + searchTerm,
+                null,
+                null,
+                posts,
+                categories,
+                null
+        );
     }
 }

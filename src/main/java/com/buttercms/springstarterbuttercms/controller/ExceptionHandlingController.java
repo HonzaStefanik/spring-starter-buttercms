@@ -13,15 +13,20 @@ public class ExceptionHandlingController {
     Logger logger = LoggerFactory.getLogger(ExceptionHandlingController.class);
 
     private final IButterCMSClient butterCMSClient;
+    private final String INVALID_TOKEN = "Invalid token.";
 
     public ExceptionHandlingController(IButterCMSClient butterCMSClient) {
         this.butterCMSClient = butterCMSClient;
     }
 
+    //Invalid token == env missing
     @ExceptionHandler(ButterCMSResponseException.class)
-    public String invalidToken() {
-        String token = butterCMSClient.getAuthToken();
-        logger.error("Your Butter token might be set to an invalid value. Please verify your token is correct.");
-        return token == null ? "404" : "invalid-token";
+    public String invalidToken(ButterCMSResponseException exception) {
+        if (exception.getMessage().equals(INVALID_TOKEN)) {
+            String token = butterCMSClient.getAuthToken();
+            logger.error("Your Butter token might be set to an invalid value. Please verify your token is correct.");
+            return token == null ? "404" : "invalid-token";
+        }
+        throw exception;
     }
 }
