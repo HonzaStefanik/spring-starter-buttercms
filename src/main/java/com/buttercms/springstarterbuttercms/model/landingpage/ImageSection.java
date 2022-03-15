@@ -14,18 +14,6 @@ public class ImageSection extends Section {
     @JsonProperty("button_url")
     private String buttonUrl;
 
-    public ImageSection() {
-    }
-
-    public ImageSection(String headline, String subHeadline, String image, String imagePosition, String buttonLabel, String buttonUrl) {
-        this.headline = headline;
-        this.subHeadline = subHeadline;
-        this.image = image;
-        this.imagePosition = imagePosition;
-        this.buttonLabel = buttonLabel;
-        this.buttonUrl = buttonUrl;
-    }
-
     public String getHeadline() {
         return headline;
     }

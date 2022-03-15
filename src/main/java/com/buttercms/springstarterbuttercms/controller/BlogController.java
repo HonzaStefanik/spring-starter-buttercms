@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-// TODO - remove hardcoded strings and place them into constants (although it messes up thymeleaf's autocompletion, reconsider)
-// TODO - also make usage of consts and hardcoded strings consistent
-// TODO - split thymeleaf into fragments to avoid duplicating code
-
 @Controller
 public class BlogController {
 

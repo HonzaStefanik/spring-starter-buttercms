@@ -10,16 +10,6 @@ public class FeaturesSection extends Section {
     private String subHeadline;
     private List<Feature> features;
 
-
-    public FeaturesSection() {
-    }
-
-    public FeaturesSection(String headline, String subHeadline, List<Feature> features) {
-        this.headline = headline;
-        this.subHeadline = subHeadline;
-        this.features = features;
-    }
-
     public String getHeadline() {
         return headline;
     }

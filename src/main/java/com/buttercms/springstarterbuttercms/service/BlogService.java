@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.buttercms.springstarterbuttercms.configuration.Constants.*;
-import static com.buttercms.springstarterbuttercms.configuration.Constants.BLOG_SEARCH_SEO_DESCRIPTION;
 
 @Service
 public class BlogService {
@@ -27,7 +26,7 @@ public class BlogService {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_SEO_TITLE);
         model.addAttribute("seoDescription", BLOG_SEO_DESCRIPTION);
-        model.addAttribute("breadcrumbText", "All Blog Posts");
+        model.addAttribute("breadcrumbText", ALL_BLOGS);
     }
 
     public void addBlogDataByBlog(Model model, String slug) {
@@ -54,7 +53,7 @@ public class BlogService {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_CATEGORY_SEO_TITLE + categoryName);
         model.addAttribute("seoDescription", BLOG_CATEGORY_SEO_DESCRIPTION + categoryName);
-        model.addAttribute("breadcrumbText", "Blog Posts By Category");
+        model.addAttribute("breadcrumbText", BLOGS_BY_CATEGORY);
         model.addAttribute("subCollection", "Category: " + categoryName);
     }
 
@@ -71,7 +70,7 @@ public class BlogService {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_TAG_SEO_TITLE + tagName);
         model.addAttribute("seoDescription", BLOG_TAG_SEO_DESCRIPTION + tagName);
-        model.addAttribute("breadcrumbText", "Blog Posts By Tag");
+        model.addAttribute("breadcrumbText", BLOGS_BY_TAG);
         model.addAttribute("subCollection", "Tag: " + tagName);
     }
 
@@ -85,9 +84,7 @@ public class BlogService {
         model.addAttribute("categories", categories.getData());
         model.addAttribute("seoTitle", BLOG_SEARCH_SEO_TITLE + searchTerm);
         model.addAttribute("seoDescription", BLOG_SEARCH_SEO_DESCRIPTION + searchTerm);
-        model.addAttribute("breadcrumbText", "Search Results");
+        model.addAttribute("breadcrumbText", SEARCH_RESULTS);
         model.addAttribute("subCollection", "Search: " + searchTerm);
     }
-
-
 }

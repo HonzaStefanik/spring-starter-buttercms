@@ -9,14 +9,6 @@ public class TestimonialsSection extends Section {
     @JsonProperty("testimonial")
     private List<Testimonial> testimonials;
 
-    public TestimonialsSection() {
-    }
-
-    public TestimonialsSection(String headline, List<Testimonial> testimonials) {
-        this.headline = headline;
-        this.testimonials = testimonials;
-    }
-
     public String getHeadline() {
         return headline;
     }
@@ -37,15 +29,6 @@ public class TestimonialsSection extends Section {
         private String quote;
         private String name;
         private String title;
-
-        public Testimonial() {
-        }
-
-        public Testimonial(String quote, String name, String title) {
-            this.quote = quote;
-            this.name = name;
-            this.title = title;
-        }
 
         public String getQuote() {
             return quote;

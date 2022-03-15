@@ -55,7 +55,7 @@
 
 
 <!-- ========================= header start ========================= -->
-<div th:insert="fragments/header :: header"></div>
+<div th:insert="fragments/common-elements/header :: header"></div>
 <!-- ========================= header end ========================= -->
 
 <div th:each="section: ${sections}">
@@ -67,58 +67,12 @@
 </div>
 
 <!-- ========================= blog-section start ========================= -->
-<section id="blog" class="blog-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-10">
-                <div class="section-title text-center">
-                    <h2>Latest Blog Posts</h2>
-                    <p>Butter also has a built in blog engine which makes it dead simple
-                        to launch a new company blog
-                    </p>
-                    <p>
-                        <a
-                                href="/blog/"
-                                class="main-btn btn-hover mt-5">View All Blog Posts
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-
-            <div th:each="post: ${posts}" class="col-lg-4 col-md-8 col-sm-10">
-                <div class="single-blog">
-                    <div th:if="${post.featuredImage} != null" class="blog-header">
-                        <img
-                                class="img-fluid"
-                                loading="lazy"
-                                th:src="${post.featuredImage}"
-                                alt=""
-                        >
-                    </div>
-                    <div class="blog-body">
-                        <h5 class="package-name">
-                            <a th:href="|/blog/${post.getSlug()}|">
-                                [(${post.title})]
-                            </a>
-                        </h5>
-                        <p th:text="${post.summary}"></p>
-                    </div>
-                    <div class="blog-footer">
-                        <a th:href="|/blog/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<div th:insert="fragments/landing-page/latest-blogs"></div>
 <!-- ========================= blog-section end ========================= -->
 
 <!-- ========================= footer start ========================= -->
-<div th:insert="fragments/footer"></div>
+<div th:insert="fragments/common-elements/footer"></div>
 <!-- ========================= footer end ========================= -->
-
 
 <!-- ========================= scroll-top ========================= -->
 <a href="#" class="scroll-top btn-hover">
