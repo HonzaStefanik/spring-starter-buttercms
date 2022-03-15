@@ -48,13 +48,14 @@ public class BlogService {
         PostsResponse posts = butterCMSClient.getPosts(queryParams);
         CategoryResponse category = butterCMSClient.getCategory(categorySlug, Collections.emptyMap());
         CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
+        String categoryName = category.getData().getName();
         model.addAttribute("posts", posts.getData());
         model.addAttribute("category", category.getData());
         model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_CATEGORY_SEO_TITLE);
-        model.addAttribute("seoDescription", BLOG_CATEGORY_SEO_DESCRIPTION);
+        model.addAttribute("seoTitle", BLOG_CATEGORY_SEO_TITLE + categoryName);
+        model.addAttribute("seoDescription", BLOG_CATEGORY_SEO_DESCRIPTION + categoryName);
         model.addAttribute("breadcrumbText", "Blog Posts By Category");
-        model.addAttribute("subCollection", "Category: " + category.getData().getName());
+        model.addAttribute("subCollection", "Category: " + categoryName);
     }
 
     public void addBlogDataByTags(Model model, String tagSlug) {
@@ -64,13 +65,14 @@ public class BlogService {
         PostsResponse posts = butterCMSClient.getPosts(queryParams);
         TagResponse tag = butterCMSClient.getTag(tagSlug, Collections.emptyMap());
         CategoriesResponse categories = butterCMSClient.getCategories(Collections.emptyMap());
+        String tagName = tag.getData().getName();
         model.addAttribute("posts", posts.getData());
         model.addAttribute("tag", tag.getData());
         model.addAttribute("categories", categories.getData());
-        model.addAttribute("seoTitle", BLOG_TAG_SEO_TITLE);
-        model.addAttribute("seoDescription", BLOG_TAG_SEO_DESCRIPTION);
+        model.addAttribute("seoTitle", BLOG_TAG_SEO_TITLE + tagName);
+        model.addAttribute("seoDescription", BLOG_TAG_SEO_DESCRIPTION + tagName);
         model.addAttribute("breadcrumbText", "Blog Posts By Tag");
-        model.addAttribute("subCollection", "Tag: " + tag.getData().getName());
+        model.addAttribute("subCollection", "Tag: " + tagName);
     }
 
     public void addBlogDataBySearch(Model model, String searchTerm) {
