@@ -12,6 +12,10 @@ public class AppConfiguration {
     @Value("${buttercms.token}")
     private String token;
 
+    // TODO - add it to the client once that functionality is implemented
+    @Value("${buttercms.preview}")
+    private boolean preview;
+
     @Bean
     public IButterCMSClient butterCMSClient() {
         return new ButterCMSClient(token);
