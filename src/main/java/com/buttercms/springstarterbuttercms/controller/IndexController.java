@@ -31,8 +31,7 @@ public class IndexController {
         return "index";
     }
 
-    // TODO - verify whether the preview works; might need to wait for SDK changes
-    @GetMapping("/landing-page/{slug}")
+    @GetMapping(value =  "/landing-page/{slug}", headers = "Content-Security-Policy=frame-ancestors 'self' https://buttercms.com;")
     public String indexSlug(Model model) {
         return index(model);
     }

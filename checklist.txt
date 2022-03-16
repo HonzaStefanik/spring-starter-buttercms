@@ -9,9 +9,9 @@ Note: For frameworks that generate static sites, e.g., NextJS, etc.: once these
     assume this is being tested while running the hot-reloading development server.
 
 ## Local Configuration and Token
-- [ ] Readme is placed in repo and uses language from the sample readme from
+- [X] Readme is placed in repo and uses language from the sample readme from
     the front-end asset respository.
-- [ ] User can follow readme and run locally from the terminal in < 5 mins
+- [X] User can follow readme and run locally from the terminal in < 5 mins
 - [x] Locally run project uses the provided favicon.
 - [x] Starter project uses best practices for managing and accessing environment
     variables, including Butter token (generally by storing in an .env file).
@@ -31,7 +31,7 @@ Note: For frameworks that generate static sites, e.g., NextJS, etc.: once these
 
 ## Index View
 - [x] Route is set to "/"
-- [ ] Secondary route is set to either /<slug> or /landing-page/<slug> to enable previewing in ButterCMS.com
+- [x] Secondary route is set to either /<slug> or /landing-page/<slug> to enable previewing in ButterCMS.com
 iframe panel, as iframe panel does not currently explicitly allow previewing of index.
 - [x] Page view connects to "landing-page-with-components" page type in Butter.
 - [x] Automatically detects if API token is configured and displays error hero
@@ -200,7 +200,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     image slot removed from their card.
 
 ## Deployment/Hosting
-- [ ] Instructions are included for a quick and easy deployment on one of the specified platforms
+- [x] Instructions are included for a quick and easy deployment on one of the specified platforms
     using a button inside of the readme (see NextJS project for example).
 - [ ] For frameworks like Django that generate dynamic sites, edits to the landing page
     in the customer's ButterCMS.com account are reflected in the deployed hosted site.

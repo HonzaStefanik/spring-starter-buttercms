@@ -6,7 +6,6 @@ This Spring Boot starter project fully integrates with dynamic sample content fr
 including main menu, pages, blog posts, categories, and tags, all with a beautiful, custom theme with already-implemented search functionality.
 All of the included sample content is automatically created in your account dashboard when you sign up for a free trial of ButterCMS.
 
-
 [View our live demo hosted at Heroku](https://spring-starter-buttercms.herokuapp.com/), or you can click a button below
 to deploy your own copy of our starter project to the provider of your  choice.
 
@@ -45,7 +44,7 @@ Build the project with the following command
 
 `mvn install -DskipTests`
 
-## 4. Run the project
+### 4. Run the project
 
 To run the project, use the following command
 
@@ -53,11 +52,19 @@ To run the project, use the following command
 
 Your starter project is now live at http://localhost:8080
 
-### 5. Webhooks
+## 5. Deploy on Heroku
+
+Deploy your Spring Boot app using Heroku. With a single click, you'll create a copy of our starter project in your Git provider account,
+instantly deploy it, and institute a full content workflow connected to your ButterCMS account. Smooth.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/HonzaStefanik/spring-starter-buttercms.git)
+
+
+### 6. Webhooks
 
 The ButterCMS webhook settings are located at https://buttercms.com/webhooks/
 
-### 6. Previewing Draft Changes
+### 7. Previewing Draft Changes
 
 By default, your starter project is set up to allow previewing of draft changes saved in your ButterCMS.com account.
 To disable this functionality, set the following value in your .env file: BUTTER_CMS_PREVIEW=false
