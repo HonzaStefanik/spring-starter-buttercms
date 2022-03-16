@@ -1,0 +1,6 @@
+{
+  "name": "ButterCMS Spring Boot starter project",
+  "description": "Example application for ButterCMS in Java with Spring Boot",
+  "repository": "https://github.com/HonzaStefanik/spring-starter-buttercms.git",
+  "keywords": ["buttercms", "java", "spring", "spring boot"]
+}
