@@ -7,70 +7,88 @@ import com.buttercms.model.Tag;
 import java.util.List;
 
 public class BlogsDto {
-    private final String seoTitle;
-    private final String seoDescription;
-    private final String breadcrumbText;
-    private final String subCollection;
-    private final Category category;
-    private final Tag tag;
-    private final List<Post> posts;
-    private final List<Category> categories;
-    private final List<Tag> tags;
+    private String seoTitle;
+    private String seoDescription;
+    private String breadcrumbText;
+    private String subCollection;
+    private Category category;
+    private Tag tag;
+    private List<Post> posts;
+    private List<Category> categories;
+    private List<Tag> tags;
 
-    public BlogsDto(String seoTitle,
-                    String seoDescription,
-                    String breadcrumbText,
-                    String subCollection,
-                    Category category,
-                    Tag tag,
-                    List<Post> posts,
-                    List<Category> categories,
-                    List<Tag> tags) {
-        this.seoTitle = seoTitle;
-        this.seoDescription = seoDescription;
-        this.breadcrumbText = breadcrumbText;
-        this.subCollection = subCollection;
-        this.category = category;
-        this.tag = tag;
-        this.posts = posts;
-        this.categories = categories;
-        this.tags = tags;
+    public BlogsDto() {
     }
-
 
     public String getSeoTitle() {
         return seoTitle;
+    }
+
+    public void setSeoTitle(String seoTitle) {
+        this.seoTitle = seoTitle;
     }
 
     public String getSeoDescription() {
         return seoDescription;
     }
 
+    public void setSeoDescription(String seoDescription) {
+        this.seoDescription = seoDescription;
+    }
+
     public String getBreadcrumbText() {
         return breadcrumbText;
+    }
+
+    public void setBreadcrumbText(String breadcrumbText) {
+        this.breadcrumbText = breadcrumbText;
     }
 
     public String getSubCollection() {
         return subCollection;
     }
 
+    public void setSubCollection(String subCollection) {
+        this.subCollection = subCollection;
+    }
+
     public Category getCategory() {
         return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Tag getTag() {
         return tag;
     }
 
+    public void setTag(Tag tag) {
+        this.tag = tag;
+    }
+
     public List<Post> getPosts() {
         return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     public List<Category> getCategories() {
         return categories;
     }
 
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
     public List<Tag> getTags() {
         return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }

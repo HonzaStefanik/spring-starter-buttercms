@@ -26,9 +26,10 @@ public class PageCollectionService {
             put("page_size", "2");
         }};
         List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
-        Fields landingPage = butterCMSClient.getPage("*",
-                "landing-page-with-components"
-                , Collections.emptyMap(),
+        Fields landingPage = butterCMSClient.getPage(
+                "*",
+                "landing-page-with-components",
+                new HashMap<>(),
                 Fields.class
         ).getData().getFields();
         return new LandingPageDto(landingPage, posts);

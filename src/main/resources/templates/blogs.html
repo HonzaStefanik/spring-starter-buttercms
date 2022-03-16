@@ -63,6 +63,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8 blog-roll-cards">
                 <div class="row"><!--nested row for blogroll-->
+                    <div th:if="${posts.isEmpty()}">No blog posts found matching this query.</div>
                     <div th:each="post : ${posts}" class="col-12 col-lg-6">
                         <div th:insert="fragments/blog/post-preview"></div>
                     </div>

@@ -110,7 +110,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     returns the message "No blog posts found matching this query."
 - [x] Blog posts from ButterCMS.com without featured images have featured
     image slot removed from their card.
-- [ ] *Draft* changes to blog posts in buttercms.com are displayed locally according
+- [x] *Draft* changes to blog posts in buttercms.com are displayed locally according
     to the given specifications for that individual framework.
 
 ## Blog Tags View

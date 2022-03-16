@@ -22,7 +22,7 @@ public class ExceptionHandlingController {
     //Invalid token == env missing
     @ExceptionHandler(ButterCMSResponseException.class)
     public String invalidToken(ButterCMSResponseException exception) {
-        if (exception.getMessage().equals(INVALID_TOKEN)) {
+        if (exception.getMessage().contains(INVALID_TOKEN)) {
             String token = butterCMSClient.getAuthToken();
             logger.error("Your Butter token might be set to an invalid value. Please verify your token is correct.");
             return token == null ? "404" : "invalid-token";

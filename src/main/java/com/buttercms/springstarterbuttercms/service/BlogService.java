@@ -25,33 +25,26 @@ public class BlogService {
     public BlogsDto getBlogs() {
         List<Post> posts = butterCMSClient.getPosts(Collections.emptyMap()).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
-        return new BlogsDto(
-                BLOG_SEO_TITLE,
-                BLOG_SEO_DESCRIPTION,
-                ALL_BLOGS,
-                null,
-                null,
-                null,
-                posts,
-                categories,
-                null
-        );
+        BlogsDto dto = new BlogsDto();
+        dto.setSeoTitle(BLOG_SEO_TITLE);
+        dto.setSeoDescription(BLOG_SEO_DESCRIPTION);
+        dto.setBreadcrumbText(ALL_BLOGS);
+        dto.setPosts(posts);
+        dto.setCategories(categories);
+        return dto;
     }
 
     public BlogsDto getBlogsBySlug(String slug) {
         Post post = butterCMSClient.getPost(slug).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
-        return new BlogsDto(
-                post.getSeoTitle(),
-                post.getMetaDescription(),
-                post.getTitle(),
-                post.getTitle(),
-                null,
-                null,
-                Collections.singletonList(post),
-                categories,
-                null
-        );
+        BlogsDto dto = new BlogsDto();
+        dto.setSeoTitle(post.getSeoTitle());
+        dto.setSeoDescription(post.getMetaDescription());
+        dto.setBreadcrumbText(post.getTitle());
+        dto.setSubCollection(post.getTitle());
+        dto.setCategories(categories);
+        dto.setPosts(Collections.singletonList(post));
+        return dto;
     }
 
     public BlogsDto getBlogsByCategory(String categorySlug) {
@@ -62,17 +55,14 @@ public class BlogService {
         Category category = butterCMSClient.getCategory(categorySlug, Collections.emptyMap()).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
         String categoryName = category.getName();
-        return new BlogsDto(
-                BLOG_CATEGORY_SEO_TITLE + categoryName,
-                BLOG_CATEGORY_SEO_DESCRIPTION + categoryName,
-                BLOGS_BY_CATEGORY,
-                "Category: " + categoryName,
-                category,
-                null,
-                posts,
-                categories,
-                null
-        );
+        BlogsDto dto = new BlogsDto();
+        dto.setSeoTitle(BLOG_CATEGORY_SEO_TITLE + categoryName);
+        dto.setSeoDescription(BLOG_CATEGORY_SEO_DESCRIPTION + categoryName);
+        dto.setBreadcrumbText(BLOGS_BY_CATEGORY);
+        dto.setSubCollection("Category: " + categoryName);
+        dto.setPosts(posts);
+        dto.setCategories(categories);
+        return dto;
     }
 
     public BlogsDto getBlogsByTag(String tagSlug) {
@@ -83,17 +73,15 @@ public class BlogService {
         Tag tag = butterCMSClient.getTag(tagSlug, Collections.emptyMap()).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
         String tagName = tag.getName();
-        return new BlogsDto(
-                BLOG_TAG_SEO_TITLE + tagName,
-                BLOG_TAG_SEO_DESCRIPTION + tagName,
-                BLOGS_BY_TAG,
-                "Tag: " + tagName,
-                null,
-                tag,
-                posts,
-                categories,
-                null
-        );
+        BlogsDto dto = new BlogsDto();
+        dto.setSeoTitle(BLOG_TAG_SEO_TITLE + tagName);
+        dto.setSeoDescription(BLOG_TAG_SEO_DESCRIPTION + tagName);
+        dto.setBreadcrumbText(BLOGS_BY_TAG);
+        dto.setSubCollection("Tag: " + tagName);
+        dto.setPosts(posts);
+        dto.setCategories(categories);
+        return dto;
+
     }
 
     public BlogsDto searchBlogs(String searchTerm) {
@@ -102,16 +90,13 @@ public class BlogService {
         }};
         List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
-        return new BlogsDto(
-                BLOG_SEARCH_SEO_TITLE + searchTerm,
-                BLOG_SEARCH_SEO_DESCRIPTION + searchTerm,
-                SEARCH_RESULTS,
-                "Search: " + searchTerm,
-                null,
-                null,
-                posts,
-                categories,
-                null
-        );
+        BlogsDto dto = new BlogsDto();
+        dto.setSeoTitle(BLOG_SEARCH_SEO_TITLE + searchTerm);
+        dto.setSeoDescription(BLOG_SEARCH_SEO_DESCRIPTION + searchTerm);
+        dto.setBreadcrumbText(SEARCH_RESULTS);
+        dto.setSubCollection("Search: " + searchTerm);
+        dto.setPosts(posts);
+        dto.setCategories(categories);
+        return dto;
     }
 }
