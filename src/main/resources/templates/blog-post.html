@@ -6,6 +6,7 @@
     <title>Sample Blog Post with Components - powered by ButterCMS</title>
     <meta name="description" content="Sample Landing Page with Components - powered by ButterCMS"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta th:if="${post.getFeaturedImage()} != null" name="image" th:content="${post.getFeaturedImage()}">
     <link rel="shortcut icon" type="image/x-icon" href="https://buttercms.com/static/v2/images/favicon.png"/>
     <!-- Place favicon.ico in the root directory -->
 

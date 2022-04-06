@@ -11,6 +11,7 @@ public class BlogsDto {
     private String seoDescription;
     private String breadcrumbText;
     private String subCollection;
+    private String featuredImageUrl;
     private Category category;
     private Tag tag;
     private List<Post> posts;
@@ -46,6 +47,14 @@ public class BlogsDto {
 
     public String getSubCollection() {
         return subCollection;
+    }
+
+    public String getFeaturedImageUrl() {
+        return featuredImageUrl;
+    }
+
+    public void setFeaturedImageUrl(String featuredImageUrl) {
+        this.featuredImageUrl = featuredImageUrl;
     }
 
     public void setSubCollection(String subCollection) {

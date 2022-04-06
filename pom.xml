@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.buttercms</groupId>
             <artifactId>buttercmsclient</artifactId>
-            <version>1.6</version>
+            <version>1.10</version>
         </dependency>
     </dependencies>
 

@@ -44,6 +44,7 @@ public class BlogService {
         dto.setSubCollection(post.getTitle());
         dto.setCategories(categories);
         dto.setPosts(Collections.singletonList(post));
+        dto.setFeaturedImageUrl(post.getFeaturedImage());
         return dto;
     }
 
@@ -88,7 +89,7 @@ public class BlogService {
         Map<String, String> queryParams = new HashMap<String, String>() {{
             put("query", searchTerm);
         }};
-        List<Post> posts = butterCMSClient.getPosts(queryParams).getData();
+        List<Post> posts = butterCMSClient.getSearchPosts(queryParams).getData();
         List<Category> categories = butterCMSClient.getCategories(Collections.emptyMap()).getData();
         BlogsDto dto = new BlogsDto();
         dto.setSeoTitle(BLOG_SEARCH_SEO_TITLE + searchTerm);
