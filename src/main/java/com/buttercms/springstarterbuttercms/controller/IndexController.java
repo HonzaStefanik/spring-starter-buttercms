@@ -31,7 +31,7 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping(value =  "/landing-page/{slug}", headers = "Content-Security-Policy=frame-ancestors 'self' https://buttercms.com;")
+    @GetMapping(value =  "/{slug}", headers = "Content-Security-Policy=frame-ancestors 'self' https://buttercms.com;")
     public String indexSlug(Model model) {
         return index(model);
     }
