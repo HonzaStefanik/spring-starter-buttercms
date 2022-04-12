@@ -29,10 +29,7 @@ public class BlogController {
         return "blogs";
     }
 
-    @GetMapping(
-            value = {"/blog/{slug}", "/{preview_slug}/{slug}"},
-            headers = "Content-Security-Policy=frame-ancestors 'self' https://buttercms.com;"
-    )
+    @GetMapping("/blog/{slug}")
     public String blogById(@PathVariable String slug, Model model) {
         BlogsDto blogsDto = blogService.getBlogsBySlug(slug);
         model.addAttribute("post", blogsDto.getPosts().get(0));
