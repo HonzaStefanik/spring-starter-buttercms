@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <title>Sample Blog Post with Components - powered by ButterCMS</title>
-    <meta name="description" content="Sample Landing Page with Components - powered by ButterCMS"/>
+    <title th:content="${seoTitle}"></title>
+    <meta name="description" th:content="${seoDescription}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta th:if="${post.getFeaturedImage()} != null" name="image" th:content="${post.getFeaturedImage()}">
+    <meta th:if="${post.featuredImage} != null" name="image" th:content="${post.featuredImage}">
     <link rel="shortcut icon" type="image/x-icon" href="https://buttercms.com/static/v2/images/favicon.png"/>
     <!-- Place favicon.ico in the root directory -->
 
