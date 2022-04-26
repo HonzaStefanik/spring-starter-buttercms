@@ -34,14 +34,14 @@
                     </div>
                     <div class="blog-body">
                         <h5 class="package-name">
-                            <a th:href="|/blog/${post.getSlug()}|">
+                            <a th:href="|/blog/${post.getSlug()}|" th:target="_blank">
                                 [(${post.title})]
                             </a>
                         </h5>
                         <p th:text="${post.summary}"></p>
                     </div>
                     <div class="blog-footer">
-                        <a th:href="|/blog/${post.getSlug()}|" class="main-btn btn-hover">Read More</a>
+                        <a th:href="|/blog/${post.getSlug()}|" th:target="_blank" class="main-btn btn-hover">Read More</a>
                     </div>
                 </div>
             </div>
