@@ -34,8 +34,6 @@ cd spring-starter-buttercms
 
 ### 2. Set API Token
 
-TODO - add .env.example
-
 To fetch your ButterCMS content, add your API token as an environment variable.
 
 `$ echo 'BUTTER_CMS_TOKEN=<Your API Token>' >> .env`

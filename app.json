@@ -2,5 +2,11 @@
   "name": "ButterCMS Spring Boot starter project",
   "description": "Example application for ButterCMS in Java with Spring Boot",
   "repository": "https://github.com/HonzaStefanik/spring-starter-buttercms.git",
-  "keywords": ["buttercms", "java", "spring", "spring boot"]
+  "keywords": ["buttercms", "java", "spring", "spring boot"],
+  "env": {
+    "JAVA_BUTTER_CMS_API_KEY": {
+      "description": "The API token of your ButterCMS account",
+      "require": true
+    }
+  }
 }
