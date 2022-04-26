@@ -74,7 +74,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 - [x] Clicking a tag routes to the appropriate blog tag view for that tag.
 - [x] Title on each blog card links to blog post detail view.
 - [x] "Read More" Button on each blog card links to blog post detail view.
-- [ ] Search widget area is functional. Typing a search term into the box and clicking on
+- [x] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [x] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
@@ -104,7 +104,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 - [x] Clicking a tag routes to the appropriate blog tag view for that tag.
 - [x] Title on each blog card links to blog post detail view.
 - [x] "Read More" Button on each blog card links to blog post detail view.
-- [ ] Search widget area is functional. Typing a search term into the box and clicking on
+- [x] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [x] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
@@ -134,7 +134,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 - [x] Clicking a tag routes to the appropriate blog tag view for that tag.
 - [x] Title on each blog card links to blog post detail view.
 - [x] "Read More" Button on each blog card links to blog post detail view.
-- [ ] Search widget area is functional. Typing a search term into the box and clicking on
+- [x] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [x] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
@@ -164,7 +164,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 - [x] Clicking a tag routes to the appropriate blog tag view for that tag.
 - [x] Title on each blog card links to blog post detail view.
 - [x] "Read More" Button on each blog card links to blog post detail view.
-- [ ] Search widget area is functional. Typing a search term into the box and clicking on
+- [x] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [x] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
@@ -192,7 +192,7 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
     with changes to posts in the customer's ButterCMS.com account.
 - [x] Placeholder avatar used if no avatar in customer's Butter account.
 - [x] Clicking a tag routes to the appropriate blog tag view for that tag.
-- [ ] Search widget area is functional. Typing a search term into the box and clicking on
+- [x] Search widget area is functional. Typing a search term into the box and clicking on
     magnifying glass icon routes to blog search view for that term.
 - [x] Searching for a term that does not exist in the customer's ButterCMS.com posts
     returns the message "No blog posts found matching this query."
@@ -202,15 +202,15 @@ iframe panel, as iframe panel does not currently explicitly allow previewing of 
 ## Deployment/Hosting
 - [x] Instructions are included for a quick and easy deployment on one of the specified platforms
     using a button inside of the readme (see NextJS project for example).
-- [ ] For frameworks like Django that generate dynamic sites, edits to the landing page
+- [x] For frameworks like Django that generate dynamic sites, edits to the landing page
     in the customer's ButterCMS.com account are reflected in the deployed hosted site.
-- [ ] For frameworks like Django that generate dynamic sites, edits to blog posts in the
+- [x] For frameworks like Django that generate dynamic sites, edits to blog posts in the
     customer's ButterCMS.com account are reflected in the deployed hosted site.
-- [ ] Once deployed with a hosting provider, clicking on "preview" in the customer's
+- [x] Once deployed with a hosting provider, clicking on "preview" in the customer's
     ButterCMS.com account for a page or post shows a preview of the changes in the
     ButterCMS.com iframe panel (requires entering URL of hosted site into ButterCMS.com
     when prompted.)
-- [ ] For frameworks that generate static sites, webhooks that trigger
+- [x] For frameworks that generate static sites, webhooks that trigger
     rebuilds-on-content-changes need to be automatically created in the ButterCMS platform
     for the user. For example, for Vercel, we created
     https://buttercms.com/onboarding/vercel-starter-deploy-callback/; which does this
