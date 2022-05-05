@@ -14,7 +14,7 @@
                     <div class="section-title">
                         <h2 th:text="${section.headline}" class="mb-20"></h2>
                         <p>[(${section.subHeadline})]</p>
-                        <a th:href="${section.buttonUrl}" th:text="${section.buttonLabel}" class="main-btn btn-hover border-btn mt-30"></a>
+                        <a th:href="${section.buttonUrl}" th:text="${section.buttonLabel}" th:target="_blank" class="main-btn btn-hover border-btn mt-30"></a>
                     </div>
                 </div>
             </div>
