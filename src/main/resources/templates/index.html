@@ -59,11 +59,11 @@
 <!-- ========================= header end ========================= -->
 
 <div th:each="section: ${sections}">
-    <div th:if='${section.scrollAnchorId.equals("home")}' th:insert="fragments/landing-page/home"></div>
-    <div th:if='${section.scrollAnchorId.equals("about")}' th:insert="fragments/landing-page/about"></div>
-    <div th:if='${section.scrollAnchorId.equals("features")}' th:insert="fragments/landing-page/features"></div>
-    <div th:if='${section.scrollAnchorId.equals("tryit")}' th:insert="fragments/landing-page/try-it"></div>
-    <div th:if='${section.scrollAnchorId.equals("testimonials")}' th:insert="fragments/landing-page/testimonials"></div>
+    <div th:if='${section.scrollAnchorId.equals("home")}' th:insert="fragments/landing-page/home :: home (scrollAnchorId=${section.scrollAnchorId})"></div>
+    <div th:if='${section.scrollAnchorId.equals("about")}' th:insert="fragments/landing-page/about :: about (scrollAnchorId=${section.scrollAnchorId})"></div>
+    <div th:if='${section.scrollAnchorId.equals("features")}' th:insert="fragments/landing-page/features :: features (scrollAnchorId=${section.scrollAnchorId})"></div>
+    <div th:if='${section.scrollAnchorId.equals("tryit")}' th:insert="fragments/landing-page/try-it :: tryit (scrollAnchorId=${section.scrollAnchorId})"></div>
+    <div th:if='${section.scrollAnchorId.equals("testimonials")}' th:insert="fragments/landing-page/testimonials :: testimonials (scrollAnchorId=${section.scrollAnchorId})"></div>
 </div>
 
 <!-- ========================= blog-section start ========================= -->
