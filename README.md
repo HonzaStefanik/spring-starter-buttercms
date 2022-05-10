@@ -1,5 +1,3 @@
-TODO - change GitHub URLs to official ButterCMS' repos once they get created
-
 ![Java version](https://img.shields.io/badge/Java-8-red)
 
 # Spring Boot +  ButterCMS Starter Project
